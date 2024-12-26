@@ -16,6 +16,7 @@ for SBD in SBDS:
     if response.status_code == 200:
         data = response.json()
         print(data)
+        # EXAMPLE DATA
         # {
         #     "result": [
         #         {
