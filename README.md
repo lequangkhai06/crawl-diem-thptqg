@@ -16,7 +16,7 @@ Dự án này cào dữ liệu điểm thi THPTQG 2024 từ trang web chính th�
 ### Bước 1: Clone repo
 
 ```bash
-git clone https://github.com/your-username/crawl-diem-thptqg.git
+git clone https://github.com/lequangkhai06/crawl-diem-thptqg.git
 cd crawl-diem-thptqg
 ```
 
