@@ -1,10 +1,15 @@
 import requests
 import pandas as pd
+import json
 
-SBDS = [f'6300{id:04}' for id in range(1, 7502)]
-year = 2024
+config_path = 'config.json'
+with open(config_path, "r") as file:
+    data = json.load(file)
+
+SBDS = [f'{data['cityCode']}00{id:04}' for id in range(1, data['maxRange'])]
+year = data['year']
 all_main_info = []
-all_group_info = []
+file_name = data['fileName']
 
 for SBD in SBDS:
     headers = {
@@ -15,7 +20,6 @@ for SBD in SBDS:
     response = requests.get(api_url, headers=headers)
     if response.status_code == 200:
         data = response.json()
-        print(data)
         # EXAMPLE DATA
         # {
         #     "result": [
@@ -56,17 +60,17 @@ for SBD in SBDS:
                 'KHXH': result['KHXH'],
             }
             all_main_info.append(main_info)
-
+            print(">> THÀNH CÔNG SBD: " + str(SBD))
+        else:
+            print(">> CÓ LỖI SBD: " + str(SBD))
     else:
         print(
-            f'Có lỗi xảy ra {response.status_code} SBD {SBD}')
+            f'>> Có lỗi xảy ra {response.status_code} SBD {str(SBD)}')
         print(response.text)
 
 main_df = pd.DataFrame(all_main_info)
-group_df = pd.DataFrame(all_group_info)
 
-with pd.ExcelWriter('DIEMTHITHPTQG2024.xlsx') as writer:
+with pd.ExcelWriter(file_name+'.xlsx') as writer:
     main_df.to_excel(writer, sheet_name='MainInfo', index=False)
-    group_df.to_excel(writer, sheet_name='ListGroup', index=False)
 
-print('Dữ liệu đã được ghi lại vào file DIEMTHITHPTQG2024.xlsx')
+print('>> Dữ liệu đã được ghi lại vào file {}.xlsx'.format(file_name))

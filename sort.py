@@ -16,4 +16,4 @@ df_sorted_D01.to_excel('diem_thi_2024_sorted_D01.xlsx', index=False)
 df_sorted_C00 = df.sort_values(by='C00', ascending=False)
 df_sorted_C00.to_excel('diem_thi_2024_sorted_C00.xlsx', index=False)
 
-print("Hoàn thành sắp xếp và lưu các tệp!")
+print(">> Hoàn thành sắp xếp và lưu các tệp!")
