@@ -7,7 +7,7 @@ Dự án này cào dữ liệu điểm thi THPTQG 2024 từ trang web chính th�
 ## Yêu cầu
 
 - Python 3.8 trở lên
-- Các thư viện cần thiết (cài bặng `pip install -r requirements.txt`):
+- Các thư viện cần thiết (cài bằng `pip install -r requirements.txt`):
   - requests
   - pandas
 
