@@ -1,4 +1,4 @@
-# THPTQG 2024 Score Scraper
+# crawl-diem-thptqg
 
 ## Mô tả đề tài
 
@@ -16,8 +16,8 @@ Dự án này cào dữ liệu điểm thi THPTQG 2024 từ trang web chính th�
 ### Bước 1: Clone repo
 
 ```bash
-git clone https://github.com/your-username/thptqg-2024-score-scraper.git
-cd thptqg-2024-score-scraper
+git clone https://github.com/your-username/crawl-diem-thptqg.git
+cd crawl-diem-thptqg
 ```
 
 ### Bước 2: Cài đặt thư viện phụ thuộc
@@ -29,8 +29,10 @@ pip install -r requirements.txt
 ### Bước 3: Cấu hình
 
 Chỉnh sửa file `config.json` để thay đổi các thông tin:
-- `base_url`: URL chính thức của trang web kết quả.
-- `output_file`: Tên file đầu ra lưu điểm (CSV).
+- `cityCode`: Mã tỉnh.
+- `year`: Năm.
+- `maxRange`: Giới hạn tối đa.
+- `fileName`: Tên file đầu ra lưu điểm (CSV).
 
 ### Bước 4: Chạy chương trình
 
@@ -43,9 +45,10 @@ Kết quả sẽ được lưu trong file CSV mà bạn cấu hình ở bước 
 ## Cấu trúc dự án
 
 ```
-thptqg-2024-score-scraper/
+crawl-diem-thptqg/
 ├── main.py         # File chính để chạy chương trình
-├── sort.py      # Hàm sắp xếp dữ liệu
+├── sort.py         # Hàm sắp xếp dữ liệu
+├── config.json     # File cấu hình
 ├── requirements.txt# Danh sách các thư viện cần thiết
 ├── README.md       # File hướng dẫn (file này)
 ```
